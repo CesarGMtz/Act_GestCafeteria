@@ -7,9 +7,20 @@ def checkName(na):
         return(False)
 
 def checkSizes(si):
-    # li = [float(num) if '.' in num else int(num) for num in re.split(r"[0-9]+.*[0-9]+.*[0-9]+.*[0-9]+\.[0-9]+.*[0-9]+\.[0-9]+.*[0-9]+\.[0-9]+", si)]
+    if (si.isspace() or si == ""):
+        return(False)
+    
     li = [num.strip() for num in si.split(",")]
-    lis = []
+    i = 1
+
+    if (0 < len(li) < 6):
+        while i < len(li):
+            if (li[i] < li[i - 1]):
+                return(False)
+            i += 1
+    else:
+        return(False)
+
     for num in li:
         if ("." in num):
             return(False)

@@ -17,3 +17,12 @@ def test_valSize():
     assert gest_Cafeteria.checkSizes("1, 2, 3") == True
     assert gest_Cafeteria.checkSizes("1, 2, 3.3") == False
     assert gest_Cafeteria.checkSizes("0, 1, 2, 49") == False
+    assert gest_Cafeteria.checkSizes("-1, 0, 1, 2") == False
+
+def test_sizeOrder():
+    assert gest_Cafeteria.checkSizes("1") == True
+    assert gest_Cafeteria.checkSizes("1, 2, 3") == True
+    assert gest_Cafeteria.checkSizes("1, 2, 3, 4, 5") == True
+    assert gest_Cafeteria.checkSizes("2, 3, 4, 1") == False
+    assert gest_Cafeteria.checkSizes("3, 2, 1") == False
+    
