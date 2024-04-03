@@ -7,7 +7,8 @@ def checkName(na):
         return(False)
 
 def checkSizes(si):
-    li = [int(num) for num in re.split("[^a-zA-Z\d]+",si)]
+    li = [float(num) if '.' in num else int(num) for num in re.split(r'[-+]?\d*\.\d+|\d+', si)]
+    print(li)
     for num in li:
         if (isinstance(num, int) and 0 < num < 49):
             print(num)
@@ -15,12 +16,12 @@ def checkSizes(si):
             return(False)
     return(True)
 
-print("Agrega una nueva Bebida")
-x = input()
+# print("Agrega una nueva Bebida")
+# x = input()
 
-name = x.split(",", 1)[0].strip()
-sizes = x.split(",", 1)[1].strip()
-print("Nombre: ")
-print(checkName(name))
-print("Tamaño: ")
-print(checkSizes(sizes))
+# name = x.split(",", 1)[0].strip()
+# sizes = x.split(",", 1)[1].strip()
+# print("Nombre: ")
+# print(checkName(name))
+# print("Tamaño: ")
+# print(checkSizes(sizes))
