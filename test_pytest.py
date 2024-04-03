@@ -26,3 +26,10 @@ def test_sizeOrder():
     assert gest_Cafeteria.checkSizes("2, 3, 4, 1") == False
     assert gest_Cafeteria.checkSizes("3, 2, 1") == False
     
+def test_sizeSize():
+    assert gest_Cafeteria.checkSizes("1") == True
+    assert gest_Cafeteria.checkSizes("1, 2, 3, 4, 5") == True
+    assert gest_Cafeteria.checkSizes("1, 2, 3, 4, 5, 6") == False
+    assert gest_Cafeteria.checkSizes("") == False
+    assert gest_Cafeteria.checkSizes(" ") == False
+    
