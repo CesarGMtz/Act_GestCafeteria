@@ -1,5 +1,13 @@
 import re
 
+def checkFormat(dr):
+    name = dr.split(",", 1)[0].strip()
+    sizes = dr.split(",", 1)[1].strip()
+    if(checkName(name) and checkSizes(sizes)):
+        return(True)
+    else:
+        return(False)
+
 def checkName(na):
     if (1 < len(na) < 16):
         return all(char.isalpha() or char.isspace() for char in na)
@@ -10,7 +18,8 @@ def checkSizes(si):
     if (si.isspace() or si == ""):
         return(False)
     
-    li = [num.strip() for num in si.split(",")]
+    li = re.findall(r'\d+\.\d+|\d+', si)
+    print(li)
     i = 1
 
     if (0 < len(li) < 6):
