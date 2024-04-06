@@ -1,5 +1,6 @@
 #Función que checa si el formato, de la bebida agregada, es correcto
 def checkFormat(dr):
+    #Checa si la entrada solo tiene espacios en blanco o un string vacío
     if (dr.isspace()) or dr == "":
         return("ERROR: La entrada está en blanco") #Si sí, devuelve ERROR
     #Obtiene el primer elemento del string de la bebida, presuntamente el nombre de esta
