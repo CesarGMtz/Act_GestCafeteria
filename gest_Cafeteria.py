@@ -14,6 +14,9 @@ def checkFormat(dr):
 
 #Función que checha si el formato, del nombre de la bebida agregada, es correcto
 def checkName(na):
+    #Checa si el string solo contiene espacios en blanco
+    if (na.isspace()) or na == "":
+        return("ERROR: El nombre está en blanco") #Si sí, devuelve ERROR
     #Checa si el string del nombre tiene entre 2 y 15 caracteres
     if (1 < len(na) < 16):
         nameIs = all(char.isalpha() or char.isspace() for char in na) #Si sí, se revisa si todos los caracterés del nombre son

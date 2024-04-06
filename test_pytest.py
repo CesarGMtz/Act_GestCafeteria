@@ -4,6 +4,7 @@ import gest_Cafeteria
 def test_onlyAlpha():
     assert gest_Cafeteria.checkName("KawaFresa") == True #Todos los caractéres son alfabéticos, así que es una entrada válida
     assert gest_Cafeteria.checkName("Kawa Fresa") == True #El espacio es válido como parte del nombre, así que es una entrada válida
+    assert gest_Cafeteria.checkName("    ") == "ERROR: El nombre está en blanco" #Los números no son caractéres alfabéticos, así que ERROR
     assert gest_Cafeteria.checkName("K4w4Fr3s4") == "ERROR: El nombre contiene caractéres no alfabéticos" #Los números no son caractéres alfabéticos, así que ERROR
     assert gest_Cafeteria.checkName("Kawa Fresa!") == "ERROR: El nombre contiene caractéres no alfabéticos" #El signo "!"" no es un caractér alfabético, así que ERROR
 
@@ -41,7 +42,7 @@ def test_sizeSize():
 #Test que comprueba que, el formato de la entrada, tenga el formato correcto
 def test_listFormat():
     assert gest_Cafeteria.checkFormat("KawaFresa, 1, 3, 5") == True #El nombre es la primera entrada y, después, está una lista de tamaños válidos, así que es una entrada válida
-    assert gest_Cafeteria.checkFormat("KawaFresa, 1, 3, 5, , 6") == True #Los espacios en blanco son ignorados, así que es una entrada válida
+    assert gest_Cafeteria.checkFormat("KawaFresa, 1, 3 , 5, , 6") == True #Los espacios en blanco son ignorados, así que es una entrada válida
     assert gest_Cafeteria.checkFormat("KawaFresa, 1, 3, 5,, 6") == True #2 comas seguidas son ignoradas, así que es una entrada válida
     assert gest_Cafeteria.checkFormat("1, 2, 3, 4, KawaFresa") == "ERROR: El primer elemento no es un nombre válido" #La lista de tamaños es la primera entrada y, después, está el nombre, así que ERROR
     assert gest_Cafeteria.checkFormat("1, KawaFresa, 2, 3, 4") == "ERROR: El primer elemento no es un nombre válido" #El nombre se encuentra en medio de la lista de tamaños, así que ERROR
