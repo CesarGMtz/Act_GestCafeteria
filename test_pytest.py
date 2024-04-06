@@ -46,4 +46,5 @@ def test_listFormat():
     assert gest_Cafeteria.checkFormat("KawaFresa, 1, 3, 5,, 6") == True #2 comas seguidas son ignoradas, así que es una entrada válida
     assert gest_Cafeteria.checkFormat("1, 2, 3, 4, KawaFresa") == "ERROR: El primer elemento no es un nombre válido" #La lista de tamaños es la primera entrada y, después, está el nombre, así que ERROR
     assert gest_Cafeteria.checkFormat("1, KawaFresa, 2, 3, 4") == "ERROR: El primer elemento no es un nombre válido" #El nombre se encuentra en medio de la lista de tamaños, así que ERROR
+    assert gest_Cafeteria.checkFormat("") == "ERROR: La entrada está en blanco"
     
